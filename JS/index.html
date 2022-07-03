@@ -6,21 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <!-- CSS only -->
+
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
       crossorigin="anonymous"
     />
+    <style>
+      body {
+        background-color: #121212;
+      }
+      * {
+        color: #ffffff;
+      }
+    </style>
   </head>
   <body>
+    <noscript>You need to enable JavaScript to run this App</noscript>
+    <script
+      src="https://kit.fontawesome.com/f7aeae9224.js"
+      crossorigin="anonymous"
+    ></script>
     <!-- JavaScript Bundle with Popper -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
       crossorigin="anonymous"
     ></script>
-    <nav class="navbar navbar-expand-lg bg-light">
+    <nav
+      class="navbar navbar-expand-lg navbar-dark"
+      style="background-color: #303030"
+    >
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Notes</a>
         <button
@@ -40,36 +57,49 @@
               <a class="nav-link active" aria-current="page" href="#">Home</a>
             </li>
           </ul>
-          <form class="d-flex" role="search">
+          <form class="mx-2 d-flex" role="search">
             <input
               class="form-control me-2"
               type="search"
-              placeholder="Search"
+              placeholder="Search Notes"
               aria-label="Search"
               id="searchTxt"
             />
-            <button class="btn btn-outline-success" type="submit">
-              Search
-            </button>
           </form>
         </div>
       </div>
     </nav>
     <div class="container my-3">
-      <h2>Welcome to Notes</h2>
-      <div class="card">
+      <h2 style="color: #b3b3b3">Welcome to Notes</h2>
+      <div class="card" style="border-radius: 20px; background-color: #282828">
         <div class="card-body">
           <h5 class="card-title">Add a note</h5>
           <div class="mb-3">
-            <textarea class="form-control" id="addTxt" rows="3"></textarea>
+            <input
+              class="form-control my-2"
+              type="text"
+              id="addTitle"
+              placeholder="Add title"
+            />
+            <textarea
+              class="form-control"
+              id="addTxt"
+              rows="3"
+              placeholder="Add text"
+            ></textarea>
           </div>
-          <button class="btn btn-primary" id="addBtn">Add Note</button>
+          <button
+            class="btn btn-success"
+            id="addBtn"
+            style="background-color: #18191a"
+          >
+            Save
+          </button>
         </div>
       </div>
-      <hr />
-      <h2>Your Notes</h2>
-      <hr />
-      <div id="notes" class="row container-fluid"></div>
+      <br />
+      <h2 style="color: #b3b3b3">Your Notes</h2>
+      <div id="notes" class="row container"></div>
     </div>
 
     <!-- main script -->

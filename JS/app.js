@@ -6,16 +6,27 @@ if (notes == null) {
 } else {
   notesObj = JSON.parse(notes);
 }
-
 showNotes();
+let addTitle = document.getElementById("addTitle");
 let addTxt = document.getElementById("addTxt");
 let addBtn = document.getElementById("addBtn");
+
 addBtn.addEventListener("click", function (e) {
-  if (addTxt.value != 0) {
-    notesObj.push(addTxt.value);
-    localStorage.setItem("notes", JSON.stringify(notesObj));
-    addTxt.value = "";
-    showNotes();
+  if (addTxt.value.length != 0) {
+    if (addTitle.value.length != 0) {
+      combined = Array(addTitle.value, addTxt.value);
+      notesObj.push(combined);
+      localStorage.setItem("notes", JSON.stringify(notesObj));
+      addTitle.value = "";
+      addTxt.value = "";
+      showNotes();
+    } else {
+      combined = Array(addTxt.value);
+      notesObj.push(combined);
+      localStorage.setItem("notes", JSON.stringify(notesObj));
+      addTxt.value = "";
+      showNotes();
+    }
   } else {
     alert("Enter some text first!");
   }
@@ -25,15 +36,29 @@ addBtn.addEventListener("click", function (e) {
 function showNotes() {
   let html = "";
   notesObj.forEach(function (element, index) {
-    html += `
-    <div class="noteCard mx-2 my-2 card" style="width: 18rem">
-          <div class="card-body">
-            <h5 class="card-title">Note ${index + 1}</h5>
-            <p class="card-text">${element}</p>
-            <button id=${index} onclick="deleteNote(this.id)" class="btn btn-primary">Delete Note</button>
-          </div>
-        </div>
-    `;
+    if (element.length == 2) {
+      html += `
+        <div class="noteCard mx-2 my-2 card" style="background-color: #282828; width: 18rem">
+              <div class="card-body">
+                <h5 class="card-title" style="color: #b1b1b1">${element[0]}</h5>
+                <p class="card-text">${element[1]}</p>
+                <button id=${index} onclick="deleteNote(this.id)" class="btn btn-danger">Delete</button>
+              </div>
+            </div>
+        `;
+    } else {
+      html += `
+        <div class="noteCard mx-2 my-2 card" style="background-color: #282828; width: 18rem">
+              <div class="card-body">
+                <h5 class="card-title" style="color: #b1b1b1">Note ${
+                  index + 1
+                }</h5>
+                <p class="card-text">${element[0]}</p>
+                <button id=${index} onclick="deleteNote(this.id)" class="btn btn-danger">Delete</button>
+              </div>
+            </div>
+        `;
+    }
   });
   let notesElm = document.getElementById("notes");
   if (notesObj.length != 0) {
@@ -57,8 +82,12 @@ search.addEventListener("input", function () {
   let inputVal = search.value.toLowerCase();
   let noteCards = document.getElementsByClassName("noteCard");
   Array.from(noteCards).forEach(function (element) {
+    let titleText = element.getElementsByTagName("h5")[0].innerText;
     let cardtxt = element.getElementsByTagName("p")[0].innerText;
-    if (cardtxt.toLowerCase().includes(inputVal)) {
+    if (
+      cardtxt.toLowerCase().includes(inputVal) ||
+      titleText.toLowerCase().includes(inputVal)
+    ) {
       element.style.display = "block";
     } else {
       element.style.display = "none";
