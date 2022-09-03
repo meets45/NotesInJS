@@ -1,0 +1,100 @@
+body {
+  background-color: #121212;
+}
+* {
+  color: #ffffff;
+}
+textarea:hover,
+textarea:active,
+textarea:focus,
+input:hover,
+input:active,
+input:focus,
+button:active,
+button:focus {
+  outline: 0px !important;
+  -webkit-appearance: none;
+  box-shadow: none !important;
+}
+#addTxt {
+  resize: none;
+  padding: 10px;
+  padding-left: 15px;
+  padding-top: 15px;
+}
+@media only screen and (min-width: 240px) {
+  #addTxt {
+    height: 25rem;
+  }
+  #notes {
+    font-size: small;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  #addTxt {
+    font-size: 16px;
+    height: 20rem;
+  }
+  #notes {
+    display: flex;
+    flex-direction: column;
+  }
+  .noteCard {
+    width: 100%;
+  }
+  .modal-head {
+    font-size: 26px;
+  }
+  input[type="text"] {
+    font-size: 18px;
+    padding: 15px;
+  }
+  #addBtn {
+    height: 2.5rem;
+    width: 6rem;
+    font-size: large;
+  }
+}
+@media only screen and (min-width: 992px) {
+  #addTxt {
+    height: 18rem;
+  }
+  #notes {
+    display: flex;
+    flex-direction: column;
+  }
+  .noteCard {
+    width: 100%;
+  }
+  .modal-head {
+    font-size: 26px;
+  }
+  input[type="text"] {
+    font-size: 18px;
+    padding: 15px;
+  }
+  #addBtn {
+    height: 2.5rem;
+    width: 6rem;
+    font-size: large;
+  }
+  @media only screen and (min-width: 1200px) {
+    .modal-head {
+      font-size: 26px;
+    }
+    input[type="text"] {
+      font-size: 20px;
+      padding: 15px;
+    }
+    #addTxt {
+      font-size: 18px;
+      height: 15rem;
+    }
+    #addBtn {
+      height: 2.5rem;
+      width: 6rem;
+      font-size: large;
+    }
+  }
+}

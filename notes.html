@@ -14,14 +14,7 @@
       integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
       crossorigin="anonymous"
     />
-    <style>
-      body {
-        background-color: #121212;
-      }
-      * {
-        color: #ffffff;
-      }
-    </style>
+    <link rel="stylesheet" href="notes.css" type="text/css" />
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this App</noscript>
@@ -33,10 +26,10 @@
     ></script>
     <nav
       class="navbar navbar-expand-lg navbar-dark"
-      style="background-color: #303030"
+      style="background-color: #303030;"
     >
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Notes</a>
+        <label class="navbar-brand">Notes</label>
         <button
           class="navbar-toggler"
           type="button"
@@ -49,12 +42,8 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-          </ul>
-          <form class="mx-2 d-flex" role="search">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+          <form class="mx-1 d-flex" role="search">
             <input
               class="form-control me-2"
               type="search"
@@ -68,10 +57,9 @@
       </div>
     </nav>
     <div class="container my-3">
-      <h2 style="color: #b3b3b3">Welcome to Notes</h2>
-      <div class="card" style="border-radius: 20px; background-color: #282828">
+      <div class="card" style="border-radius: 20px; background-color: #282828;">
         <div class="card-body">
-          <h5 class="card-title">Add a note</h5>
+          <h5 class="card-title modal-head">Create a Note</h5>
           <div class="mb-3">
             <input
               class="form-control my-2"
@@ -87,16 +75,16 @@
             ></textarea>
           </div>
           <button
-            class="btn btn-success"
+            class="btn btn-dark"
             id="addBtn"
-            style="background-color: #18191a"
+            style="background-color: #18191a;"
           >
             Save
           </button>
         </div>
       </div>
       <br />
-      <h2 style="color: #b3b3b3">Your Notes</h2>
+      <h2 style="color: #b3b3b3;">Your Notes</h2>
       <div id="notes" class="row container"></div>
     </div>
 

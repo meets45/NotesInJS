@@ -38,7 +38,7 @@ function showNotes() {
   notesObj.forEach(function (element, index) {
     if (element.length == 2) {
       html += `
-        <div class="noteCard mx-2 my-2 card" style="background-color: #282828; width: 18rem">
+        <div class="noteCard mx-2 my-2 card col-md-3" style="background-color: #282828">
               <div class="card-body">
                 <h5 class="card-title" style="color: #b1b1b1">${element[0]}</h5>
                 <p class="card-text">${element[1]}</p>
@@ -48,8 +48,8 @@ function showNotes() {
         `;
     } else {
       html += `
-        <div class="noteCard mx-2 my-2 card" style="background-color: #282828; width: 18rem">
-              <div class="card-body">
+        <div class="noteCard mx-2 my-2 card col-md-3" style="background-color: #282828">
+            <div class="card-body">
                 <h5 class="card-title" style="color: #b1b1b1">Note ${
                   index + 1
                 }</h5>
@@ -65,7 +65,7 @@ function showNotes() {
     notesElm.innerHTML = html;
   } else {
     notesElm.innerHTML = `No notes to show :( <br>
-         Use 'Add a note' section to create your first note `;
+         Use 'Create a Note' section to create your first note `;
   }
 }
 
